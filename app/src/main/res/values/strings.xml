@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EgoUVC Phone</string>
+    <string name="target_device">目标设备：1bcf:0b15（2UQ2）</string>
+    <string name="label_device_name">设备名称</string>
+    <string name="label_vid_pid">VID:PID</string>
+    <string name="label_usb_host">USB Host</string>
+    <string name="label_connection">连接状态</string>
+    <string name="label_camera_permission">CAMERA 权限</string>
+    <string name="label_usb_permission">USB 权限</string>
+    <string name="not_available">—</string>
+    <string name="supported">支持</string>
+    <string name="unsupported">不支持</string>
+    <string name="granted">已授予</string>
+    <string name="not_granted">未授予</string>
+    <string name="no_target_device">无目标设备</string>
+    <string name="state_disconnected">未连接目标设备</string>
+    <string name="state_camera_required">需要 CAMERA 权限</string>
+    <string name="state_usb_required">需要 USB 权限</string>
+    <string name="state_usb_pending">等待 USB 授权结果</string>
+    <string name="state_ready">授权就绪，尚未开始采集</string>
+    <string name="state_error">错误</string>
+    <string name="refresh_devices">刷新设备</string>
+    <string name="request_permission">申请权限</string>
+    <string name="video_section_title">V0.2 双目 UVC 预览（目标 MJPEG 3840×1080 @ 60 FPS）</string>
+    <string name="open_camera">打开相机</string>
+    <string name="close_camera">关闭相机</string>
+    <string name="video_idle">视频：未打开</string>
+    <string name="video_opening">视频：正在打开 / 等待首帧</string>
+    <string name="video_streaming">视频：收到帧</string>
+    <string name="video_fps_waiting">解码后帧回调 FPS：待测量</string>
+    <string name="video_requires_ready">请先完成 CAMERA 与 USB 授权。</string>
+    <string name="preview_surface_unavailable">预览界面尚未就绪。</string>
+    <string name="supported_modes">设备声明的 UVC 模式</string>
+</resources>

@@ -1,0 +1,54 @@
+.gradle/
+.idea/
+*.iml
+local.properties
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local APKs and signing credentials
+*.apk
+*.aab
+*.jks
+*.keystore
+keystore.properties
+
+# Local recordings, backups, and Python cache
+/episodes/
+/episode_*/
+/episode_upgrade_backup_*.tar.gz
+/preview_debug_backup_*.tar.gz
+__pycache__/
+*.py[cod]
+
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+.idea/
+*.apk
+*.aab
+
+# Signing keys
+*.jks
+*.keystore
+
+# Captured data and backups
+episodes/
+*.tar.gz
+*.log
+
+# Internal development documents
+docs/v*/
+specs/
+
+# Build and local files
+.gradle/
+**/build/
+local.properties
+.idea/
+*.apk
+*.aab
+*.tar.gz
+episodes/

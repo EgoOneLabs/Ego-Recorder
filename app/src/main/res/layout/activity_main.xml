@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/target_device"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/label_device_name" />
+
+        <TextView
+            android:id="@+id/deviceNameValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_vid_pid" />
+
+        <TextView
+            android:id="@+id/vidPidValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_usb_host" />
+
+        <TextView
+            android:id="@+id/hostValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_available"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_connection" />
+
+        <TextView
+            android:id="@+id/connectionValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/state_disconnected"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_camera_permission" />
+
+        <TextView
+            android:id="@+id/cameraPermissionValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_granted"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_usb_permission" />
+
+        <TextView
+            android:id="@+id/usbPermissionValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_target_device"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/refreshButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/refresh_devices" />
+
+            <Button
+                android:id="@+id/requestPermissionButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/request_permission" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/video_section_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <!-- Native SurfaceView is required by libuvc. A separate ImageView displays
+             sampled decoded RGBX frames so native-Surface black screens are diagnosable. -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.egouvc.phone.camera.StereoPreviewSurface
+                android:id="@+id/previewSurface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.egouvc.phone.camera.MeasuredPreviewImage
+                android:id="@+id/decodedPreviewImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:contentDescription="Decoded USB camera preview"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/openCameraButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/open_camera" />
+
+            <Button
+                android:id="@+id/closeCameraButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/close_camera" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/startCaptureButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="开始原始 MJPEG 采集" />
+
+            <Button
+                android:id="@+id/stopCaptureButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="停止并保存" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/recordingStatusValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Episode：保存原始 MJPEG、XU IMU 包与主机时间戳" />
+
+        <TextView
+            android:id="@+id/cameraStateValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/video_idle" />
+
+        <TextView
+            android:id="@+id/cameraModeValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_available" />
+
+        <TextView
+            android:id="@+id/cameraFpsValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/video_fps_waiting" />
+
+        <TextView
+            android:id="@+id/previewFpsValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="抽样预览绘制：等待帧（不含底层 SurfaceView）" />
+
+        <Button
+            android:id="@+id/probeImuButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="探测 IMU（不录制）" />
+
+        <TextView
+            android:id="@+id/imuProbeValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IMU：尚未探测"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/supported_modes" />
+
+        <TextView
+            android:id="@+id/cameraModesValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_available" />
+
+        <TextView
+            android:id="@+id/cameraMessageValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <TextView
+            android:id="@+id/messageValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
